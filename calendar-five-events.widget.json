@@ -1,0 +1,190 @@
+{
+    "template": "<style>\n  div.left-column {\n  \ttext-align: right; \n  \tmargin-left: 5px;\n  }\n  div.right-column {\n\t\ttext-align: left;\n  \tmargin-left: 25px;  \n  }\n  div.event-date {\n  \tfont-size: 18px;\n  \tcolor: {{config.CalendarGlobalHighlightColor}};\n  }\n  div.event-day {\n  \tfont-size: 14px;\n  }\n  div.event-summary {\n  \tfont-size: 18px;\n  \tcolor: {{config.CalendarGlobalHighlightColor}};\n  \twhite-space: nowrap;\n  \toverflow: hidden; \n  \ttext-overflow: ellipsis;\n  }\n  div.event-time {\n  \tfont-size: 14px;\n  \tfont-weight: bold;\n  }\n  div.event-location {\n  \tfont-size: 14px;\n  \twhite-space: nowrap;\n  \toverflow: hidden; \n  \ttext-overflow: ellipsis;\n  }  \n\thr.event-divider { \n  \tborder: 0; \n  \theight: 1px; \n  \tbackground-image: -webkit-linear-gradient(left, #212124, #666666, #FFFFFF, #666666, #212124);\n\t}\n</style>\n\n<div class=\"row\">\n\t<div class=\"col col-sm-2 left-column\">\n    <div class=\"row event-date\">\n    \t<span ng-if=\"(config.CalendarGlobalShowDate)\"> {{itemValue(config.CalendarEvent1StartDateTime) | date:'dd. MMM'}}</span>      \n    </div>\n    <div class=\"row event-day\">\n      <span ng-if=\"(config.CalendarGlobalShowDay)\"> {{itemValue(config.CalendarEvent1StartDateTime) | date:'EEE'}}</span>\n    </div>\n  </div>\n  <div class=\"col col-sm-8 right-column\">\n    <div class=\"row event-summary\">\n      <span ng-if=\"(config.CalendarGlobalShowSummary)\"> {{itemValue(config.CalendarEvent1Summary)}}</span>\n    </div>\n    <div class=\"row event-time\">\n      <span ng-if=\"(config.CalendarGlobalShowTime) && ((itemValue(config.CalendarEvent1StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent1EndDateTime) | date:'dd.MM.yyyy'))\"> {{itemValue(config.CalendarEvent1StartDateTime) | date:'HH:mm'}}</span>\n      <span ng-if=\"(config.CalendarGlobalShowTime) && ((itemValue(config.CalendarEvent1StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent1EndDateTime) | date:'dd.MM.yyyy'))\"> - </span>\n      <span ng-if=\"(config.CalendarGlobalShowTime) && ((itemValue(config.CalendarEvent1StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent1EndDateTime) | date:'dd.MM.yyyy'))\"> {{itemValue(config.CalendarEvent1EndDateTime) | date:'HH:mm'}}</span>\n\t\t\t<span ng-if=\"(config.CalendarGlobalShowTime) && ((itemValue(config.CalendarEvent1StartDateTime) | date:'dd.MM.yyyy') < (itemValue(config.CalendarEvent1EndDateTime) | date:'dd.MM.yyyy'))\"> All day </span>      \n    </div>    \n    <div class=\"row event-location\">\n      <span ng-if=\"(config.CalendarGlobalShowLocation)\"> {{itemValue(config.CalendarEvent1Location)}}</span>\n    </div>  \n  </div> \n</div>\n<div ng-if=\"(config.CalendarGlobalNumberOfEvents > 1)\">\n\t<hr class=\"event-divider\">\n</div>\n  \n<div class=\"row\">\n\t<div class=\"col col-sm-2 left-column\">\n    <div class=\"row event-date\">\n    \t<span ng-if=\"(config.CalendarGlobalShowDate) && (config.CalendarGlobalNumberOfEvents > 1)\"> {{itemValue(config.CalendarEvent2StartDateTime) | date:'dd. MMM'}}</span>\n    </div>\n    <div class=\"row event-day\">\n      <span ng-if=\"(config.CalendarGlobalShowDay) && (config.CalendarGlobalNumberOfEvents > 1)\"> {{itemValue(config.CalendarEvent2StartDateTime) | date:'EEE'}}</span>\n    </div>\n  </div>\n  <div class=\"col col-sm-8 right-column\">\n    <div class=\"row event-summary\">\n      <span ng-if=\"(config.CalendarGlobalShowSummary) && (config.CalendarGlobalNumberOfEvents > 1)\"> {{itemValue(config.CalendarEvent2Summary)}}</span>\n    </div>\n    <div class=\"row event-time\">\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 1) && ((itemValue(config.CalendarEvent2StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent2EndDateTime) | date:'dd.MM.yyyy'))\"> {{itemValue(config.CalendarEvent2StartDateTime) | date:'HH:mm'}}</span>\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 1) && ((itemValue(config.CalendarEvent2StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent2EndDateTime) | date:'dd.MM.yyyy'))\"> - </span>\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 1) && ((itemValue(config.CalendarEvent2StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent2EndDateTime) | date:'dd.MM.yyyy'))\"> {{itemValue(config.CalendarEvent2EndDateTime) | date:'HH:mm'}}</span>\n\t\t\t<span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 1) && ((itemValue(config.CalendarEvent2StartDateTime) | date:'dd.MM.yyyy') < (itemValue(config.CalendarEvent2EndDateTime) | date:'dd.MM.yyyy'))\"> All day </span>      \n    </div>    \n    <div class=\"row event-location\">\n      <span ng-if=\"(config.CalendarGlobalShowLocation) && (config.CalendarGlobalNumberOfEvents > 1)\"> {{itemValue(config.CalendarEvent2Location)}}</span>\n    </div>  \n  </div> \n</div>\n<div ng-if=\"(config.CalendarGlobalNumberOfEvents > 2)\">\n\t<hr class=\"event-divider\">\n</div>\n  \n<div class=\"row\">\n\t<div class=\"col col-sm-2 left-column\">\n    <div class=\"row event-date\">\n    \t<span ng-if=\"(config.CalendarGlobalShowDate) && (config.CalendarGlobalNumberOfEvents > 2)\"> {{itemValue(config.CalendarEvent3StartDateTime) | date:'dd. MMM'}}</span>\n    </div>\n    <div class=\"row event-day\">\n      <span ng-if=\"(config.CalendarGlobalShowDay) && (config.CalendarGlobalNumberOfEvents > 2)\"> {{itemValue(config.CalendarEvent3StartDateTime) | date:'EEE'}}</span>\n    </div>\n  </div>\n  <div class=\"col col-sm-8 right-column\">\n    <div class=\"row event-summary\">\n      <span ng-if=\"(config.CalendarGlobalShowSummary) && (config.CalendarGlobalNumberOfEvents > 2)\"> {{itemValue(config.CalendarEvent3Summary)}}</span>\n    </div>\n    <div class=\"row event-time\">\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 2) && ((itemValue(config.CalendarEvent3StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent3EndDateTime) | date:'dd.MM.yyyy'))\"> {{itemValue(config.CalendarEvent3StartDateTime) | date:'HH:mm'}}</span>\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 2) && ((itemValue(config.CalendarEvent3StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent3EndDateTime) | date:'dd.MM.yyyy'))\"> - </span>\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 2) && ((itemValue(config.CalendarEvent3StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent3EndDateTime) | date:'dd.MM.yyyy'))\"> {{itemValue(config.CalendarEvent3EndDateTime) | date:'HH:mm'}}</span>\n\t\t\t<span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 2) && ((itemValue(config.CalendarEvent3StartDateTime) | date:'dd.MM.yyyy') < (itemValue(config.CalendarEvent3EndDateTime) | date:'dd.MM.yyyy'))\"> All day </span>      \n    </div>    \n    <div class=\"row event-location\">\n      <span ng-if=\"(config.CalendarGlobalShowLocation) && (config.CalendarGlobalNumberOfEvents > 2)\"> {{itemValue(config.CalendarEvent3Location)}}</span>\n    </div>  \n  </div> \n</div>\n<div ng-if=\"(config.CalendarGlobalNumberOfEvents > 3)\">\n\t<hr class=\"event-divider\">\n</div>\n\n<div class=\"row\">\n\t<div class=\"col col-sm-2 left-column\">\n    <div class=\"row event-date\">\n    \t<span ng-if=\"(config.CalendarGlobalShowDate) && (config.CalendarGlobalNumberOfEvents > 3)\"> {{itemValue(config.CalendarEvent4StartDateTime) | date:'dd. MMM'}}</span>\n    </div>\n    <div class=\"row event-day\">\n      <span ng-if=\"(config.CalendarGlobalShowDay) && (config.CalendarGlobalNumberOfEvents > 3)\"> {{itemValue(config.CalendarEvent4StartDateTime) | date:'EEE'}}</span>\n    </div>\n  </div>\n  <div class=\"col col-sm-8 right-column\">\n    <div class=\"row event-summary\">\n      <span ng-if=\"(config.CalendarGlobalShowSummary) && (config.CalendarGlobalNumberOfEvents > 3)\"> {{itemValue(config.CalendarEvent4Summary)}}</span>\n    </div>\n    <div class=\"row event-time\">\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 3) && ((itemValue(config.CalendarEvent4StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent4EndDateTime) | date:'dd.MM.yyyy'))\"> {{itemValue(config.CalendarEvent4StartDateTime) | date:'HH:mm'}}</span>\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 3) && ((itemValue(config.CalendarEvent4StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent4EndDateTime) | date:'dd.MM.yyyy'))\"> - </span>\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 3) && ((itemValue(config.CalendarEvent4StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent4EndDateTime) | date:'dd.MM.yyyy'))\"> {{itemValue(config.CalendarEvent4EndDateTime) | date:'HH:mm'}}</span>\n\t\t\t<span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 3) && ((itemValue(config.CalendarEvent4StartDateTime) | date:'dd.MM.yyyy') < (itemValue(config.CalendarEvent4EndDateTime) | date:'dd.MM.yyyy'))\"> All day </span>      \n    </div>    \n    <div class=\"row event-location\">\n      <span ng-if=\"(config.CalendarGlobalShowLocation) && (config.CalendarGlobalNumberOfEvents > 3)\"> {{itemValue(config.CalendarEvent4Location)}}</span>\n    </div>  \n  </div> \n</div>\n<div ng-if=\"(config.CalendarGlobalNumberOfEvents > 4)\">\n\t<hr class=\"event-divider\">\n</div>\n\n<div class=\"row\">\n\t<div class=\"col col-sm-2 left-column\">\n    <div class=\"row event-date\">\n    \t<span ng-if=\"(config.CalendarGlobalShowDate) && (config.CalendarGlobalNumberOfEvents > 4)\"> {{itemValue(config.CalendarEvent5StartDateTime) | date:'dd. MMM'}}</span>\n    </div>\n    <div class=\"row event-day\">\n      <span ng-if=\"(config.CalendarGlobalShowDay) && (config.CalendarGlobalNumberOfEvents > 4)\"> {{itemValue(config.CalendarEvent5StartDateTime) | date:'EEE'}}</span>\n    </div>\n  </div>\n  <div class=\"col col-sm-8 right-column\">\n    <div class=\"row event-summary\">\n      <span ng-if=\"(config.CalendarGlobalShowSummary) && (config.CalendarGlobalNumberOfEvents > 4)\"> {{itemValue(config.CalendarEvent5Summary)}}</span>\n    </div>\n    <div class=\"row event-time\">\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 4) && ((itemValue(config.CalendarEvent5StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent5EndDateTime) | date:'dd.MM.yyyy'))\"> {{itemValue(config.CalendarEvent5StartDateTime) | date:'HH:mm'}}</span>\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 4) && ((itemValue(config.CalendarEvent5StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent5EndDateTime) | date:'dd.MM.yyyy'))\"> - </span>\n      <span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 4) && ((itemValue(config.CalendarEvent5StartDateTime) | date:'dd.MM.yyyy') == (itemValue(config.CalendarEvent5EndDateTime) | date:'dd.MM.yyyy'))\"> {{itemValue(config.CalendarEvent5EndDateTime) | date:'HH:mm'}}</span>\n\t\t\t<span ng-if=\"(config.CalendarGlobalShowTime) && (config.CalendarGlobalNumberOfEvents > 4) && ((itemValue(config.CalendarEvent5StartDateTime) | date:'dd.MM.yyyy') < (itemValue(config.CalendarEvent5EndDateTime) | date:'dd.MM.yyyy'))\"> All day </span>      \n    </div>    \n    <div class=\"row event-location\">\n      <span ng-if=\"(config.CalendarGlobalShowLocation) && (config.CalendarGlobalNumberOfEvents > 4)\"> {{itemValue(config.CalendarEvent5Location)}}</span>\n    </div>  \n  </div> \n</div>\n  ",
+    "name": "Calendar: 5 Upcoming Events",
+    "settings": [
+        {
+            "type": "heading",
+            "id": "GlobalSettings",
+            "label": "Global settings"
+        },
+        {
+            "type": "choice",
+            "id": "CalendarGlobalNumberOfEvents",
+            "label": "Number Of Events",
+            "default": "5",
+            "choices": "1,2,3,4,5"
+        },
+        {
+            "type": "color",
+            "id": "CalendarGlobalHighlightColor",
+            "label": "Highlight Color",
+            "default": "#FF9900"
+        },
+        {
+            "type": "checkbox",
+            "id": "CalendarGlobalShowDate",
+            "default": true,
+            "label": "Show Event Date"
+        },
+        {
+            "type": "checkbox",
+            "id": "CalendarGlobalShowDay",
+            "label": "Show Event Day",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "CalendarGlobalShowSummary",
+            "default": true,
+            "label": "Show Event Summary"
+        },
+        {
+            "type": "checkbox",
+            "default": true,
+            "id": "CalendarGlobalShowTime",
+            "label": "Show Event Time"
+        },
+        {
+            "type": "checkbox",
+            "id": "CalendarGlobalShowLocation",
+            "label": "Show Event Location",
+            "default": true
+        },
+        {
+            "type": "heading",
+            "id": "Event1",
+            "label": "Event #1"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent1StartDateTime",
+            "label": "Start Date/Time",
+            "default": ""
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent1EndDateTime",
+            "label": "End Date/Time"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent1Summary",
+            "label": "Summary",
+            "default": ""
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent1Location",
+            "label": "Location",
+            "default": ""
+        },
+        {
+            "type": "heading",
+            "label": "Event #2",
+            "id": "Event2"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent2StartDateTime",
+            "label": "Start Date/Time",
+            "default": ""
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent2EndDateTime",
+            "label": "End Date/Time"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent2Summary",
+            "label": "Summary",
+            "default": ""
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent2Location",
+            "label": "Location",
+            "default": ""
+        },
+        {
+            "type": "heading",
+            "label": "Event #3",
+            "id": "Event3"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent3StartDateTime",
+            "label": "Start Date/Time",
+            "default": ""
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent3EndDateTime",
+            "label": "End Date/Time"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent3Summary",
+            "label": "Summary"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent3Location",
+            "label": "Location"
+        },
+        {
+            "type": "heading",
+            "label": "Event #4",
+            "id": "Event4"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent4StartDateTime",
+            "label": "Start Date/Time"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent4EndDateTime",
+            "label": "End Date/Time"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent4Summary",
+            "label": "Summary"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent4Location",
+            "label": "Location"
+        },
+        {
+            "type": "heading",
+            "label": "Event #5",
+            "id": "Event5"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent5StartDateTime",
+            "label": "Start Date/Time"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent5EndDateTime",
+            "label": "End Date/Time"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent5Summary",
+            "label": "Summary"
+        },
+        {
+            "type": "item",
+            "id": "CalendarEvent5Location",
+            "label": "Location"
+        }
+    ],
+    "author": "Davor Fikais",
+    "source_url": "https://raw.githubusercontent.com/andreypopov/habpanel-widget-xiaomi-sensor_weather_v1/master/humidity-temperature-pressure.widget.json",
+    "readme_url": "https://github.com/andreypopov/habpanel-widget-xiaomi-sensor_weather_v1",
+    "description": "Displays up to 5 calendar events"
+}
