@@ -21,3 +21,12 @@ Configuration
 - Select elements of the event (Date, Day, Summary, Time, Location)
 - Choose the highlight color (color of the date and summary elements)
 - Pick OpenHAB items for the events and elements you would like to display in the widget
+
+Donations
+---------
+
+If you use the widget, and would like to donate, feel free to send any amount through paypal. 
+
+Note: Since standard Donate option is not available on my PayPal account this is a workaround solution.
+
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=CCZRY3C8RXSRW&lc=BA&item_name=Donation%20%2d%20CalendarFiveEvents&item_number=5&button_subtype=services&currency_code=EUR&bn=PP%2dBuyNowBF%3abtn_paynowCC_LG%2egif%3aNonHosted)
